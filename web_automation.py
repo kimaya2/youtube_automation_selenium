@@ -9,7 +9,13 @@ import time
 
 
 def search_youtube(search,delay):
-    
+    """[searchs the user input on youtube]
+
+    Args:
+        search ([string]): [user input to be searched]
+        delay ([int]): [waiting time for the page to load]
+    """
+
     search_box = driver.find_element_by_xpath('//input[@id="search"]')
     search_box.send_keys(search)
 
@@ -19,13 +25,15 @@ def search_youtube(search,delay):
 
 
 def play_first_video():
-
+    """[plays the first video present on the loaded page]
+    """
     elem = driver.find_element_by_xpath('//*[@id="video-title"]')
     elem.click()
 
 
 def collect_links():
-
+    """[prints links of all videos present on that page]
+    """
     elements = []
     elems = driver.find_elements_by_xpath("//a[@href]")
     print("Collecting links...")
